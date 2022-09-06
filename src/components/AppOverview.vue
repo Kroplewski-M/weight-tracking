@@ -1,0 +1,22 @@
+<template>
+    <section>
+          <p class="text-zinc-300 text-center pt-5 pb-[10px] text-[20px]">Welcome, Mateusz</p>
+          <div class="w-[400px] h-[200px] rounded-tl-[510px] rounded-tr-[510px] bg-transparent border-solid border-[15px] border-purple-500 border-b-0 mt-[10px] mx-auto text-center">
+            <p class="font-bold text-zinc-300 mt-10">Current Weight-</p>
+            <p class="font-bold text-[70px] text-zinc-300 mt-[30px]">85kg</p>
+          </div>
+          <div class="mx-auto w-[100px] mt-10">
+            <button class="w-[100px] h-[30px] bg-purple-500 hover:bg-purple-600 text-zinc-100 font-bold rounded-md">Add Record</button>
+          </div>
+      </section>
+</template>
+
+<script>
+export default {
+    name: "AppOverview"
+}
+</script>
+
+<style>
+
+</style>
