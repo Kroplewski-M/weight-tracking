@@ -26,7 +26,7 @@
   data(){
     return{
       name: "",
-      weightRecords: [],
+      weightRecords: {},
       showWelcome: 'hidden',
       showAddRecord: 'hidden',
     };
@@ -34,11 +34,14 @@
   methods:{
     submit(name,weight,date){
       this.showWelcome = 'hidden';
-      console.log(weight);
+
       this.name = name;
       localStorage.setItem('name',name);
-      console.log(date);
 
+
+      this.weightRecords[date] = weight;
+      console.log(this.weightRecords);
+      localStorage.setItem('weightRecords', JSON.stringify(this.weightRecords));
     }
   },  
   created(){
@@ -47,7 +50,16 @@
       this.showWelcome = '';
     }
     else{
+      this.showWelcome = 'hidden';
       this.name = name;
+    }
+
+    let records = localStorage.getItem('weightRecords');
+    if(records == null){
+      console.log("weightRecords null");
+    }else{
+      this.weightRecords = JSON.parse(records);
+      console.log(this.weightRecords);
     }
   }
   }

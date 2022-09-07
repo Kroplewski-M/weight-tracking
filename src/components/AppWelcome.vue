@@ -25,7 +25,7 @@ export default {
     },
     methods:{
         submit(){
-            this.$emit('submit', this.name,this.weight,this.date)
+            this.$emit('submit', this.name,this.weight,this.date);
         }
     }
 }
