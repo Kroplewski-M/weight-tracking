@@ -8,13 +8,13 @@
         </div>
         
           <div class="w-[500px] h-[100px] bg-[#222222] rounded-md mt-10 mx-auto text-zinc-300 text-center hover:scale-[1.1] hover:cursor-pointer transition-transform	">
-              <p class="font-semibold text-[30px] pt-[25px]">Feb 17th 2020 - 80kg</p>
+              <p class="font-semibold text-[30px] pt-[25px]">2019-11-13 - 80kg</p>
           </div>
           <div class="w-[500px] h-[100px] bg-[#222222] rounded-md mt-10 mx-auto text-zinc-300 text-center hover:scale-[1.1] hover:cursor-pointer transition-transform	">
-              <p class="font-semibold text-[30px] pt-[25px]">Jan 10th 2020 - 90kg</p>
+              <p class="font-semibold text-[30px] pt-[25px]">2017-11-13 - 90kg</p>
           </div>
           <div class="w-[500px] h-[100px] bg-[#222222] rounded-md mt-10 mx-auto text-zinc-300 text-center hover:scale-[1.1] hover:cursor-pointer transition-transform	">
-              <p class="font-semibold text-[30px] pt-[25px]">Dec 20th 2019 - 950kg</p>
+              <p class="font-semibold text-[30px] pt-[25px]">2015-11-13 - 950kg</p>
           </div>
       </section>
 </template>
