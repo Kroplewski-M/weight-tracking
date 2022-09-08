@@ -6,7 +6,8 @@
             <div class="w-[350px] mx-auto">
                 <input required type="number" v-model="weight" placeholder="Weight (kg)" class="ml-5 mt-10 mx-auto w-[300px] h-[30px] rounded-md pl-[10px] bg-zinc-800">
                 <input required type="date" v-model="date" class="ml-5 mt-10 mx-auto w-[300px] h-[30px] rounded-md pl-[10px] bg-zinc-800">
-                <button class="mt-[50px] ml-[115px] w-[100px] h-[30px] rounded-md bg-purple-500 hover:bg-purple-600" @click.prevent="addWeightRecord">Submit</button>
+                <p class="absolute right-[45%] mt-5 text-red-600" :class="showError">Please input valid information</p>
+                <button class="mt-[80px] ml-[115px] w-[100px] h-[30px] rounded-md bg-purple-500 hover:bg-purple-600" @click.prevent="addWeightRecord">Submit</button>
             </div>
         </div>
   </section>
@@ -19,6 +20,7 @@ export default {
         return{
             weight: "",
             date: "",
+            showError:"hidden",
         }
     },
     methods:{
@@ -26,6 +28,11 @@ export default {
             this.$emit("closeAddRecord");   
         },
         addWeightRecord(){
+            if(this.weight == "" || this.date == ""){
+                this.showError = "";
+                return;
+            }
+            this.showError = "hidden";
             this.$emit("addWeightRecord",this.weight,this.date);
         },
     },

@@ -1,10 +1,10 @@
 <template>
-  <div class="w-[99vw] h-[100vh] bg-[#111111]">
+  <div class="w-[99vw] min-h-[100vh] bg-[#111111]">
       <AppWelcome :class="showWelcome" @submit="submit"></AppWelcome>
       <AppAddRecord :class="showAddRecord" @closeAddRecord="closeAddRecord" @addWeightRecord="addWeightRecord"></AppAddRecord>
       <div class="w-[800px] mx-auto">
         <AppOverview :name="name" :currentWeight="currentWeight" @addRecord="addRecord"></AppOverview>
-        <AppWeightTracker :weightRecords="weightRecords"></AppWeightTracker>
+        <AppWeightTracker :weightRecords="weightRecords" class="pb-10"></AppWeightTracker>
     </div>
   </div>
 </template>
