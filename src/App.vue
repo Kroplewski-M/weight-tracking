@@ -4,7 +4,7 @@
       <AppAddRecord :class="showAddRecord" @closeAddRecord="closeAddRecord" @addWeightRecord="addWeightRecord"></AppAddRecord>
       <div class="w-[800px] mx-auto">
         <AppOverview :name="name" :currentWeight="currentWeight" @addRecord="addRecord"></AppOverview>
-        <AppWeightTracker></AppWeightTracker>
+        <AppWeightTracker :weightRecords="weightRecords"></AppWeightTracker>
     </div>
   </div>
 </template>
@@ -29,7 +29,7 @@
       weightRecords: {},
       showWelcome: 'hidden',
       showAddRecord: 'hidden',
-      currentWeight: 0,
+      currentWeight: "",
     };
   },
   methods:{
@@ -52,7 +52,6 @@
     },
     addWeightRecord(weight,date){
       this.weightRecords[date] = weight;
-      console.log(this.weightRecords);
       localStorage.setItem('weightRecords', JSON.stringify(this.weightRecords));
       this.showAddRecord = "hidden";
     }
@@ -73,7 +72,6 @@
     }else{
       this.weightRecords = JSON.parse(records);
       this.currentWeight = Object.values(this.weightRecords)[0];
-      console.log(this.weightRecords);
     }
   },
   watch:{
