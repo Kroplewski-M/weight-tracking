@@ -54,6 +54,7 @@
       this.weightRecords[date] = weight;
       localStorage.setItem('weightRecords', JSON.stringify(this.weightRecords));
       this.showAddRecord = "hidden";
+      window.location.reload();
     }
   },  
   created(){

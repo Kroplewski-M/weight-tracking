@@ -6,9 +6,9 @@
           <a href="#" class="ml-[20px] font-bold underline">Tabs</a>
           <a href="#" class="ml-[30px]">Graph</a>
         </div>
-        <div v-for="record in weightRecords" :key="record">
+        <div v-for="date in dates" :key="date">
           <div class="w-[500px] h-[100px] bg-[#222222] rounded-md mt-10 mx-auto text-zinc-300 text-center hover:scale-[1.1] hover:cursor-pointer transition-transform	">
-              <p class="font-semibold text-[30px] pt-[25px]">2019-11-13 - {{record}}kg</p>
+              <p class="font-semibold text-[30px] pt-[25px]">{{date}} - {{this.weightRecords[date]}}kg</p>
           </div>
         </div>
       </section>
@@ -21,11 +21,17 @@ export default {
     data(){
         return{
             dates:[],
-            weights:[],
         }
     },
     methods:{
-      
+        getAllWeights(){
+            for(let record in this.weightRecords){
+                this.dates.push(record);
+            }
+        },
+    },
+    created(){
+        this.getAllWeights();
     }
 }
 </script>

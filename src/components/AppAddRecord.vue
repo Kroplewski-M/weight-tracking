@@ -28,6 +28,7 @@ export default {
         addWeightRecord(){
             this.$emit("addWeightRecord",this.weight,this.date);
         },
-    }
+    },
+
 }
 </script>
