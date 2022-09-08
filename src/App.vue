@@ -1,11 +1,11 @@
 <template>
   <div class="w-[99vw] h-[100vh] bg-[#111111]">
-    <AppWelcome :class="showWelcome" @submit="submit"></AppWelcome>
-    <AppAddRecord :class="showAddRecord"></AppAddRecord>
-    <div class="w-[800px] mx-auto">
-      <AppOverview :name="name"></AppOverview>
-      <AppWeightTracker></AppWeightTracker>
-  </div>
+      <AppWelcome :class="showWelcome" @submit="submit"></AppWelcome>
+      <AppAddRecord :class="showAddRecord" @closeAddRecord="closeAddRecord" @addWeightRecord="addWeightRecord"></AppAddRecord>
+      <div class="w-[800px] mx-auto">
+        <AppOverview :name="name" :currentWeight="currentWeight" @addRecord="addRecord"></AppOverview>
+        <AppWeightTracker></AppWeightTracker>
+    </div>
   </div>
 </template>
 
@@ -21,7 +21,7 @@
     AppWelcome,
     AppWeightTracker,
     AppOverview,
-    AppAddRecord
+    AppAddRecord,
 },
   data(){
     return{
@@ -29,6 +29,7 @@
       weightRecords: {},
       showWelcome: 'hidden',
       showAddRecord: 'hidden',
+      currentWeight: 0,
     };
   },
   methods:{
@@ -40,8 +41,20 @@
 
 
       this.weightRecords[date] = weight;
+      this.currentWeight = Object.values(this.weightRecords)[0];
+      localStorage.setItem('weightRecords', JSON.stringify(this.weightRecords));
+    },
+    addRecord(){
+      this.showAddRecord = "";
+    },
+    closeAddRecord(){
+      this.showAddRecord = "hidden";
+    },
+    addWeightRecord(weight,date){
+      this.weightRecords[date] = weight;
       console.log(this.weightRecords);
       localStorage.setItem('weightRecords', JSON.stringify(this.weightRecords));
+      this.showAddRecord = "hidden";
     }
   },  
   created(){
@@ -59,8 +72,12 @@
       console.log("weightRecords null");
     }else{
       this.weightRecords = JSON.parse(records);
+      this.currentWeight = Object.values(this.weightRecords)[0];
       console.log(this.weightRecords);
     }
+  },
+  watch:{
+   
   }
   }
 
