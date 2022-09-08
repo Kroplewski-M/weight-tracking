@@ -26,7 +26,7 @@ export default {
     methods:{
         getAllWeights(){
             for(let record in this.weightRecords){
-                this.dates.push(record);
+                this.dates.unshift(record);
             }
         },
     },

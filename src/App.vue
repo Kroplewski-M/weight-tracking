@@ -43,6 +43,8 @@
       this.weightRecords[date] = weight;
       this.currentWeight = Object.values(this.weightRecords)[0];
       localStorage.setItem('weightRecords', JSON.stringify(this.weightRecords));
+
+      window.location.reload();
     },
     addRecord(){
       this.showAddRecord = "";
