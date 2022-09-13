@@ -74,8 +74,8 @@
       console.log("weightRecords null");
     }else{
       this.weightRecords = JSON.parse(records);
-      let last = Object.values(this.weightRecords).pop();
-      this.currentWeight = last;
+      let first = Object.keys(this.weightRecords)[0];
+      this.currentWeight = this.weightRecords[first];
     }
   },
   watch:{
