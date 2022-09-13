@@ -2,20 +2,14 @@
   <section>
         <div class="flex text-zinc-300 mt-[100px]">
           <p class="font-bold ">Weight history-</p>
-          <p class="ml-[180px]">View:</p>
-          <a href="#" class="ml-[20px]" @click.prevent="this.filter = 'Tabs'" :class="filter == 'Tabs' ? 'underline font-bold' : ''">Tabs</a>
-          <a href="#" class="ml-[30px]" @click.prevent="this.filter = 'Graph'" :class="filter == 'Graph' ? 'underline font-bold' : ''">Graph</a>
         </div>
-        <section v-if="this.filter == 'Tabs'" >
+        <section >
             <div v-for="date in dates" :key="date">
             <div class="w-[500px] h-[100px] bg-[#222222] rounded-md mt-5 mx-auto text-zinc-300 text-center hover:scale-[1.1] hover:cursor-pointer transition-transform">
                 <p class="font-semibold text-[30px] pt-[25px]">{{date}} - {{this.weightRecords[date]}}kg</p>
             </div>
             </div>
         </section>
-        <div v-if="this.filter== 'Graph'">
-            
-        </div>
       </section>
 </template>
 
@@ -26,7 +20,6 @@ export default {
     data(){
         return{
             dates:[],
-            filter: "Tabs",
         }
     },
     methods:{
