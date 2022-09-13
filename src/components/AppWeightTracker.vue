@@ -25,9 +25,15 @@ export default {
     },
     methods:{
         getAllWeights(){
-            for(let record in this.weightRecords){
-                this.dates.unshift(record);
+            const weights = Object.keys(this.weightRecords);
+            weights.sort((a,b) =>  new Date(b) - new Date(a));
+
+            for(let i=0; i < weights.length; i++){
+                this.dates.push(weights[i]);
             }
+        },
+        sortWeights(){
+
         },
     },
     created(){
