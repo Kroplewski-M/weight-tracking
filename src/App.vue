@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[99vw] min-h-[100vh] bg-[#111111]">
+  <div class="w-[100vw] min-h-[100vh] bg-[#111111]">
       <AppWelcome :class="showWelcome" @submit="submit"></AppWelcome>
       <AppAddRecord :class="showAddRecord" @closeAddRecord="closeAddRecord" @addWeightRecord="addWeightRecord"></AppAddRecord>
       <div class="w-[800px] mx-auto">
